@@ -1,10 +1,10 @@
 package ca.ubc.cs304.model;
 
-public class ReportsClass {
+public class ReportsModel {
     private final int ReportNumber;
     private final String ReportDesc;
 
-    public ReportsClass (int ReportNumber, String ReportDesc) {
+    public ReportsModel (int ReportNumber, String ReportDesc) {
         this.ReportNumber = ReportNumber;
         this.ReportDesc = ReportDesc;
     }

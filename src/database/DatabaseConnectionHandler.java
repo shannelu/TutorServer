@@ -7,7 +7,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ca.ubc.cs304.model.BranchModel;
-//import ca.ubc.cs304.model.AvailabilitiesModel;
+import ca.ubc.cs304.model.AvailabilitiesModel;
+import ca.ubc.cs304.model.AssignmentModel;
+import ca.ubc.cs304.model.TopicsModel;
+import ca.ubc.cs304.model.k_12Model;
+import ca.ubc.cs304.model.BranchModel;
+import ca.ubc.cs304.model.HasModel;
+import ca.ubc.cs304.model.CoursesModel;
+import ca.ubc.cs304.model.ReceiveReportModel;
+import ca.ubc.cs304.model.WriteReportModel;
+import ca.ubc.cs304.model.CanTeachModel;
+import ca.ubc.cs304.model.NeedHelpModel;
+import ca.ubc.cs304.model.TutorsModel;
+import ca.ubc.cs304.model.UniversityModel;
+import ca.ubc.cs304.model.GiveModel;
+import ca.ubc.cs304.model.schlSubjectsModel;
+
 import ca.ubc.cs304.util.PrintablePreparedStatement;
 
 /**
@@ -28,8 +43,25 @@ public class DatabaseConnectionHandler {
 			// Load the Oracle JDBC driver
 			// Note that the path could change for new drivers
 			DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+//			login();
 		} catch (SQLException e) {
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+		}
+	}
+
+	public boolean login(String username, String password) {
+		try {
+			if (connection != null) {
+				connection.close();
+			}
+			connection = DriverManager.getConnection(ORACLE_URL, username, password);
+			connection.setAutoCommit(false);
+
+			System.out.println("\nConnected to Oracle!");
+			return true;
+		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+			return false;
 		}
 	}
 
@@ -134,23 +166,6 @@ public class DatabaseConnectionHandler {
 		}
 	}
 
-	public boolean login(String username, String password) {
-		try {
-			if (connection != null) {
-				connection.close();
-			}
-
-			connection = DriverManager.getConnection(ORACLE_URL, username, password);
-			connection.setAutoCommit(false);
-
-			System.out.println("\nConnected to Oracle!");
-			return true;
-		} catch (SQLException e) {
-			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
-			return false;
-		}
-	}
-
 	private void rollbackConnection() {
 		try  {
 			connection.rollback();
@@ -168,6 +183,7 @@ public class DatabaseConnectionHandler {
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
+			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 			System.out.println(EXCEPTION_TAG + " " + e.getMessage());
 		}
 
