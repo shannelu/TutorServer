@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ca.ubc.cs304.model.BranchModel;
+//import ca.ubc.cs304.model.AvailabilitiesModel;
 import ca.ubc.cs304.util.PrintablePreparedStatement;
 
 /**

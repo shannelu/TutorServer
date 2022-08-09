@@ -83,7 +83,7 @@ CREATE TABLE Reports(
     ReportNumber int PRIMARY KEY,
     ReportDesc char(1000)
 );
- 
+
 CREATE TABLE WriteReport(
     ReportNumber int,
     TutorID int,
