@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-222.3345.118">
+    <data-source name="@dbhost.students.cs.ubc.ca" uuid="7135b1f2-ee8d-48c0-8fef-01e9b39962b7">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="ORACLE" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>ora_lushanny</user-name>
+      <schema-mapping />
+      <introspection-level>3</introspection-level>
+      <load-sources>user_and_system_sources</load-sources>
+      <ssh-properties>
+        <enabled>true</enabled>
+        <ssh-config-id>ce70d2d6-2cac-4c98-93d2-a6c9b889fef2</ssh-config-id>
+      </ssh-properties>
+    </data-source>
+  </component>
+</project>
